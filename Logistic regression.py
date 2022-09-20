@@ -40,11 +40,6 @@ classifier.fit(X_train,y_train)
 y_pred=classifier.predict(X_test)
 
 #Making confusion Matrix
-
-from sklearn.metrics import confusion_matrix
-cm=confusion_matrix(y_test,y_pred)
-
-#visualising the training set result
 from matplotlib.colors import ListedColormap
 X_set,y_set=X_train,y_train
 X1,X2=np.meshgrid(np.arange(start=X_set[:,0].min()-1,stop=X_set[:,0].max()+1,step=0.01),
@@ -53,6 +48,11 @@ X1,X2=np.meshgrid(np.arange(start=X_set[:,0].min()-1,stop=X_set[:,0].max()+1,ste
 plt.contour(X1,X2,classifier.predict(np.array([X1.ravel(),X2.ravel()]).T).reshape(X1.shape),
 alpha=0.75,cmap=ListedColormap(('red','green')))
 
+plt.title("logistic regression(training test)"
+plt.xlabel("Age")
+plt.ylabel("Salary")
+plt.legend()
+plt.show()
 
 
 
